@@ -1,0 +1,18 @@
+<div class="addKillerForm pull--right">
+	<form class="container">
+
+		<div class="addKillerForm__inputContainer">
+			<input type="text"
+				   v-model="killerName"
+				   class="addKillerForm__input"
+				   placeholder="Type a name">
+		</div>
+
+		<button type="submit"
+				@click.prevent="sendMessage"
+				class="btn btn__add btn--circle addKillerForm__addBtn">
+			+
+		</button>
+	</form>
+
+</div>

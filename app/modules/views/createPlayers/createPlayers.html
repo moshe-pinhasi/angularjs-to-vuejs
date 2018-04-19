@@ -1,6 +1,14 @@
+
+
 <div class="createPlayers center">
+		
+		
+
 	<killers-board>
 		<board-header>
+				<div id="v-wrapper-header">
+					<create-player-header></create-player-header>
+				</div>					
 			{{createPlayersCtrl.killers.length}} Killers <span class="createPlayers__minKillers">(min killers 3)</span>
 		</board-header>
 
@@ -8,10 +16,14 @@
 			<killers-list killers="createPlayersCtrl.killers"
 						  on-remove="createPlayersCtrl.onRemove(uuid)"></killers-list>
 			<div class="createPlayers__addPlayerContainer">
-				<add-killer-form></add-killer-form>
+				<div id="v-wrapper-form">
+					<add-killer-form></add-killer-form>
+				</div>
+				<!-- <add-killer-form></add-killer-form> -->
 			</div>
 		</board-body>
 
+		
 		<board-actions>
 			<a class="btn btn__start btn--ellipse"
 			   ng-class="{'btn--disabled': createPlayersCtrl.killers.length < 3}"

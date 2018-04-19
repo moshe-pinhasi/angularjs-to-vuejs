@@ -38,6 +38,14 @@ module.exports = {
 			}
 		]
 	},
+	resolve: {
+		alias: {
+			Components: path.resolve(__dirname, './app/modules/components/'),
+			Pages: path.resolve(__dirname, './app/modules/views/'),
+			Services: path.resolve(__dirname, './app/modules/services/'),
+			EventHub: path.resolve(__dirname, './app/modules/eventHub/eventHub'),
+		}
+	},
 	plugins: [
 		new WebpackNotifierPlugin({alwaysNotify: true}),
 		new HtmlWebpackPlugin({

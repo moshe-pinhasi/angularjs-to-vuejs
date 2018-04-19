@@ -1,9 +1,11 @@
 'use strict';
 
+import {EVENT_HUB_ACTIONS} from 'EventHub';
+
 const _ = require('lodash');
 const localStorage = require('store');
 
-class KillersService {
+export class KillersService {
 	constructor(wordsService) {
 		'ngInject';
 
@@ -31,11 +33,15 @@ class KillersService {
 		});
 
 		this.saveToLocal();
+
+		//EventHub.$emit(KILLER_UPDATED, this.killers);
+		EVENT_HUB_ACTIONS.killersUpdated(this.killers);
 	}
 
 	removeKiller(uuid) {
 		_.remove(this.killers, (killer) => killer.uuid === uuid);
 		this.saveToLocal();
+		EVENT_HUB_ACTIONS.killersUpdated(this.killers);
 	}
 
 	init() {
@@ -52,5 +58,3 @@ class KillersService {
 		this.setKillers([]);
 	} 
 }
-
-export default KillersService;
